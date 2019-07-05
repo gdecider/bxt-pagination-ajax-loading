@@ -19,7 +19,7 @@ $totalPages = intval($arResult['NavPageCount']);
 
 if ($page < $totalPages) { ?>
      <div class="ix-more-link">
-         <a href="<?= $APPLICATION->GetCurPageParam('PAGEN_'.$arResult["NavNum"].'=' . ($page + 1), ['PAGEN_'.$arResult["NavNum"], 'clear_cache']).(($_REQUEST['q'])?'&q='.$_REQUEST['q'] :'') ?>" data-total="<?=$totalPages?>"><?= _t('VIEW_MORE') ?></a>
+         <a href="<?= $APPLICATION->GetCurPageParam('PAGEN_'.$arResult["NavNum"].'=' . ($page + 1), ['PAGEN_'.$arResult["NavNum"], 'clear_cache']).(($_REQUEST['q'])?'&q='.$_REQUEST['q'] :'') ?>" data-total="<?=$totalPages?>">Показать еще</a>
      </div>
 <? } ?>
 
