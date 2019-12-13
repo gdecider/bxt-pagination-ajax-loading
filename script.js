@@ -35,18 +35,15 @@ $(function () {
 
             $.get(url, {}, function (response) {
                 var $container = $element.closest('.ix-container');
-                var html_list;
                 var $block = $container.find('.ix-box');
                 var $response = $('<div>').html(response);
 
-                $block.append($response.find('#' + $container.attr('id') + ' .ix-box').html());
-                html_list = $response.find('#' + $container.attr('id')).children('.ix-more-link').html();
+                var htmlPager = $response.find('#' + $container.attr('id') + ' .ix-more-link').html();
+                var htmlItems = $response.find('#' + $container.attr('id') + ' .ix-box').html();
 
-                if (typeof  html_list !== 'undefined') {
-                    $element.closest('.ix-more-link').html(html_list);
-                }else{
-                    $element.closest('.ix-more-link').html('');
-                }
+                $block.append(htmlItems);
+                $element.closest('.ix-more-link').html(!!htmlPager ? htmlPager : '');
+
             }, 'html').always(function () {
                 _this.unlock();
             });
